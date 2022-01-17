@@ -1,0 +1,32 @@
+<mvc:View controllerName="app.UI5SmartControlsUsingMockServer.controller.App" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form" xmlns:smartForm="sap.ui.comp.smartform" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:smartField="sap.ui.comp.smartfield" xmlns:smartList="sap.ui.comp.smartlist" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<VBox>
+						<smartFilterBar:SmartFilterBar id="smartFilterBar" persistencyKey="UniqueAndStablePersistencyKey" considerSelectionVariants="true"
+							entitySet="Meetups" enableBasicSearch="true" basicSearchFieldName="MeetupID" showClearButton="true">
+							<smartFilterBar:layoutData>
+								<FlexItemData shrinkFactor="0"/>
+							</smartFilterBar:layoutData>
+						</smartFilterBar:SmartFilterBar>
+						<smartTable:SmartTable tableType="ResponsiveTable" useExportToExcel="true" useVariantManagement="false" useTablePersonalisation="true"
+							showRowCount="true" header="Smart Table" enableAutoBinding="true" id="table" entitySet="Meetups" smartFilterId="smartFilterBar"
+							editTogglable="true" app:useSmartToggle="true"></smartTable:SmartTable>
+						<form:SimpleForm id="idForm" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3"
+							labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" class="editableForm">
+							<form:content>
+								<smartField:SmartLabel labelFor="idPrice"/>
+								<smartField:SmartField value="{Price}" id="idPrice"/>
+							</form:content>
+						</form:SimpleForm>
+						<Button text="Test" press="onTest"/>
+					</VBox>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
